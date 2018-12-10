@@ -36,7 +36,7 @@
                     <tr th:each="product : ${products}">
                         <td th:text="${product.productName}"></td>
                         <td th:text="${product.productPrice}"></td>
-                        <td> <a th:href="@{'/product/' + ${product.productId}}"> Picture</a></td>
+                        <td> <a th:href="@{'/product/' + ${product.productId}}">Picture</a></td>
                     </tr>
                     </tbody>
                 </table>
@@ -68,6 +68,7 @@
 </div>
 <script src="/jquery.js" type="application/javascript"></script>
 <script type="application/javascript">
+
     $(document).ready(function () {
        $('#btn_submit').on("click",function (e) {
            e.preventDefault();

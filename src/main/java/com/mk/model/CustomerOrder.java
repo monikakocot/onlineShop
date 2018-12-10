@@ -3,9 +3,6 @@ package com.mk.model;
 import javax.persistence.*;
 import java.util.Set;
 
-/**
- * Created by shakeelosmani on 24/12/16.
- */
 
 @Entity
 public class CustomerOrder {

@@ -55,6 +55,7 @@
                         <th>Products</th>
                         <th>Total</th>
                         <th>Action</th>
+
                     </tr>
                     </thead>
                     <tbody>
@@ -71,6 +72,7 @@
                         </td>
                         <td th:text="${order.total}"></td>
                         <td th:id="${order.orderId}"><button class="btn btn-danger delete-order">Complete Order</button></td>
+
                     </tr>
                     </tbody>
                 </table>
@@ -82,6 +84,7 @@
 </div>
 <script src="/jquery.js" type="application/javascript"></script>
 <script type="application/javascript">
+
     $(document).ready(function () {
         $('#btn_submit').on("click",function(e){
             e.preventDefault();
