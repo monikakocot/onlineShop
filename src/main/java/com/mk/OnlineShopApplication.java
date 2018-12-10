@@ -1,16 +1,16 @@
-package com.shakeel;
+package com.mk;
 
-import com.shakeel.model.Product;
-import com.shakeel.repository.CustomerRepository;
-import com.shakeel.repository.OrderRepository;
-import com.shakeel.repository.ProductRepository;
+import com.mk.repository.OrderRepository;
+import com.mk.model.Product;
+import com.mk.repository.CustomerRepository;
+import com.mk.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringcoffeeshopApplication implements CommandLineRunner {
+public class OnlineShopApplication implements CommandLineRunner {
 
 	@Autowired
     ProductRepository productRepository;
@@ -24,10 +24,25 @@ public class SpringcoffeeshopApplication implements CommandLineRunner {
 
 
     public static void main(String[] args) {
-		SpringApplication.run(SpringcoffeeshopApplication.class, args);
+		SpringApplication.run(OnlineShopApplication.class, args);
 	}
 
+    @Override
+    public void run(String... strings) throws Exception {
 
+        Product apple = new Product();
+        apple.setProductName("Apple");
+        apple.setProductPrice(1.25);
+
+        Product orange = new Product();
+        orange.setProductName("Orange");
+        orange.setProductPrice(4.95);
+
+        productRepository.save(apple);
+        productRepository.save(orange);
+
+    }
+/*
     @Override
     public void run(String... strings) throws Exception {
 
@@ -42,8 +57,7 @@ public class SpringcoffeeshopApplication implements CommandLineRunner {
         productRepository.save(mocha);
         productRepository.save(capuccinno);
 
-
     }
-
+*/
 
 }

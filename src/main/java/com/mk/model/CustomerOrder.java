@@ -1,8 +1,5 @@
-package com.shakeel.model;
+package com.mk.model;
 
-import org.hibernate.annotations.Fetch;
-
-import javax.lang.model.element.Name;
 import javax.persistence.*;
 import java.util.Set;
 

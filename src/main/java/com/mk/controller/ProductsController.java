@@ -1,7 +1,7 @@
-package com.shakeel.controller;
+package com.mk.controller;
 
-import com.shakeel.model.Product;
-import com.shakeel.repository.ProductRepository;
+import com.mk.model.Product;
+import com.mk.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,9 +18,9 @@ public class ProductsController {
     ProductRepository productRepository;
 
 
-    @RequestMapping("/product/{id}")
-    public String product(@PathVariable Long id, Model model){
-        model.addAttribute("product", productRepository.findOne(id));
+    @RequestMapping("/product/{productId}")
+    public String product(@PathVariable Long productId, Model model){
+        model.addAttribute("product", productRepository.findOne(productId));
         return "product";
     }
 

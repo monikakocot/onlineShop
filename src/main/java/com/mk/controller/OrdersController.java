@@ -1,11 +1,11 @@
-package com.shakeel.controller;
+package com.mk.controller;
 
-import com.shakeel.model.Customer;
-import com.shakeel.model.CustomerOrder;
-import com.shakeel.model.Product;
-import com.shakeel.repository.CustomerRepository;
-import com.shakeel.repository.OrderRepository;
-import com.shakeel.repository.ProductRepository;
+import com.mk.model.Customer;
+import com.mk.repository.OrderRepository;
+import com.mk.model.CustomerOrder;
+import com.mk.model.Product;
+import com.mk.repository.CustomerRepository;
+import com.mk.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,9 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Created by shakeelosmani on 01/01/17.
- */
+
 
 @Controller
 public class OrdersController {

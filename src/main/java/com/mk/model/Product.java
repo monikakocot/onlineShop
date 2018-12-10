@@ -1,10 +1,8 @@
-package com.shakeel.model;
+package com.mk.model;
 
 import javax.persistence.*;
 
-/**
- * Created by shakeelosmani on 24/12/16.
- */
+
 
 @Entity
 public class Product {

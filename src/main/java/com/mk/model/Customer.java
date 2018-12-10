@@ -1,4 +1,4 @@
-package com.shakeel.model;
+package com.mk.model;
 
 
 import javax.persistence.*;
