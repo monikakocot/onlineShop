@@ -5,6 +5,8 @@ import com.mk.model.Product;
 import com.mk.repository.CustomerRepository;
 import com.mk.repository.ProductRepository;
 
+import com.mk.storage.StorageProperties;
+import com.mk.storage.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -19,7 +21,7 @@ BASED ON: https://shakeelosmani.wordpress.com/2017/02/13/step-by-step-spring-boo
 
 
 @SpringBootApplication
-
+@EnableConfigurationProperties(StorageProperties.class)
 public class OnlineShopApplication implements CommandLineRunner {
 
 	@Autowired
@@ -48,23 +50,12 @@ public class OnlineShopApplication implements CommandLineRunner {
         productRepository.save(orange);
 
     }
-
-/*
-    @Override
-    public void run(String... strings) throws Exception {
-
-        Product mocha = new Product();
-        mocha.setProductName("Mocha");
-        mocha.setProductPrice(3.95);
-
-        Product capuccinno = new Product();
-        capuccinno.setProductName("Capuccinno");
-        capuccinno.setProductPrice(4.95);
-
-        productRepository.save(mocha);
-        productRepository.save(capuccinno);
-
+    @Bean
+    CommandLineRunner init(StorageService storageService) {
+        return (args) -> {
+            //storageService.deleteAll();
+            storageService.init();
+        };
     }
-*/
 
 }

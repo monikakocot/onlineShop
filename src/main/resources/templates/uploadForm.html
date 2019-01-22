@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Products</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" href="/bootstrap.min.css" media="screen"/>
+    <style>
+        .navigation-order{
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<div th:if="${message}">
+    <h2 th:text="${message}"/>
+</div>
+
+<div>
+    <form method="POST" enctype="multipart/form-data" action="/">
+        <table>
+            <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
+            <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+        </table>
+    </form>
+</div>
+
+<div>
+    <ul>
+        <li th:each="file : ${files}">
+            <a th:href="${file}" th:text="${file}" />
+        </li>
+    </ul>
+</div>
+
+<div class="row navigation-order">
+    <div class="row">
+        <div class="col-lg-8 col-md-7 col-sm-6">
+            <a href="/products">Go to products page</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
