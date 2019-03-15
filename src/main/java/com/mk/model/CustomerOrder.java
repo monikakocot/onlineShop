@@ -10,8 +10,8 @@ public class CustomerOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long orderId;
-
     private Double total;
+    private String confirmed = "false";
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE} , fetch = FetchType.LAZY)
     @JoinTable(name = "ORDER_PRODUCTS", joinColumns = {@JoinColumn(name = "ORDER_ID")},inverseJoinColumns = {@JoinColumn(name = "PRODUCT_ID")})
@@ -19,6 +19,8 @@ public class CustomerOrder {
 
     @OneToOne
     private Customer customer;
+
+    //GETTERS, SETTERS
 
     public Long getOrderId() {
         return orderId;
@@ -28,7 +30,6 @@ public class CustomerOrder {
         this.orderId = orderId;
     }
 
-
     public Double getTotal() {
         return total;
     }
@@ -36,6 +37,15 @@ public class CustomerOrder {
     public void setTotal(Double total) {
         this.total = total;
     }
+
+    public String getConfirmed() {
+        return confirmed;
+    }
+
+    public void setConfirmed(String confirmed) {
+        this.confirmed = confirmed;
+    }
+
 
     public Set<Product> getProducts() {
         return products;

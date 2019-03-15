@@ -1,5 +1,6 @@
 package com.mk.controller;
 
+
 import com.mk.model.Customer;
 import com.mk.repository.OrderRepository;
 import com.mk.model.CustomerOrder;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 
@@ -31,6 +33,7 @@ public class OrdersController {
     @Autowired
     private CustomerRepository customerRepository;
 
+
     @RequestMapping(value = "/orders", method = RequestMethod.GET)
     public String productsList(Model model){
         model.addAttribute("products", productRepository.findAll());
@@ -40,7 +43,9 @@ public class OrdersController {
 
     @RequestMapping(value="/createorder", method = RequestMethod.POST)
     @ResponseBody
-    public String saveOrder(@RequestParam String firstName, @RequestParam String lastName, @RequestParam(value="productIds[]") Long[] productIds){
+    public String saveOrder(@RequestParam String firstName,
+                            @RequestParam String lastName,
+                            @RequestParam(value="productIds[]") Long[] productIds){
 
         Customer customer = new Customer();
         customer.setFirstName(firstName);
@@ -66,7 +71,14 @@ public class OrdersController {
     @RequestMapping(value = "/removeorder", method = RequestMethod.POST)
     @ResponseBody
     public String removeOrder(@RequestParam Long Id){
-        orderRepository.delete(Id);
+
+        //orderRepository.delete(Id);
+        orderRepository.findOne(Id).setConfirmed("true");
+
+        Optional<CustomerOrder> confirmed = Optional.ofNullable(orderRepository.findOne(Id));
+        confirmed.get().setConfirmed("true");
+        orderRepository.save(confirmed.get());
+
         return Id.toString();
     }
 

@@ -9,12 +9,11 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
     private Long productId;
-
     private String productName;
-
     private Double productPrice;
+
+    //GETTERS, SETTERS
 
     public Long getProductId() {
         return productId;

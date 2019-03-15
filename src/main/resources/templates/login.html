@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Products</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" href="/bootstrap.min.css" media="screen"/>
+    <style>
+        .navigation-order{
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <form th:action="@{/login}" method="post" th:object="${loginForm}">
+            <!-- <div class="container">-->
+            <label><b>Username</b></label>
+            <input th:type="text" th:field="*{userName}" placeholder="User's name..."
+                   th:errorClass="error"></input>
+            <label><b>Password</b></label>
+            <input th:type="password" th:field="*{password}" th:errorClass="error">
+            <span th:if="${#fields.hasErrors('password')}"
+                  th:errors="*{password}">The password is incorrect...</span></input>
+            <button type="submit" th:value="Zaloguj">Login</button>
+        </form>
+    </div>
+</div>
+
+
+<div th:replace="fragments/footer :: footer">...</div>
+</body>
+</html>

@@ -11,11 +11,11 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.AUTO)
 
     private long customerId;
-
     private String firstName;
-
     private String lastName;
 
+
+    //GETTERS, SETTERS
     public long getCustomerId() {
         return customerId;
     }
